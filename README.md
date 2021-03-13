@@ -1,4 +1,4 @@
-# Reg-To-Xml-GPP-Converter
+# RegToXML Converter v1.3 (Update 10.2019)
 
 Über die Group Policy Preferences (GPP) kann man unter anderem Registry-Einträge per Gruppenrichtlinie an Client-Rechner verteilen. Was bei einem einzelnen Eintrag manuell noch machbar ist, wird zu einer aufwändigen und fehlerträchtigen Aufgabe, wenn es um mehrere Registry-Werte geht, die man parallel verteilen muss.
 
@@ -8,14 +8,14 @@ Das Skript wandelt/konvertiert Registry-Dateien (sog. *.reg-Files) in XML-Dateie
 
 Es bedient alle gängigen Registry-Formate: REG_SZ, REG_EXPAND_SZ, REG_MULTI_SZ, REG_BINARY, REG_DWORD, REG_QWORD
 
-# Voraussetzungen / Prerequisites
+## Voraussetzungen / Prerequisites
 Powershell Version 3
 
-# Parameter v1.3
+## Parameter v1.3
 FilePath (erforderlich) – Hier geben Sie den Pfad zur Reg-Datei an
 ActionType (nicht erforderlich) – Der Wert kann ( Create, Delete, Update, Replace ) betragen. Der „Default Parameter“ ist Update
 
-# Beispiele / Examples v1.3
+## Beispiele / Examples v1.3
 Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg
 Convert-RegToGppXml.ps1 -FilePath „C:\Sub Folder\MyTestRegFile.reg“
 Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg -ActionType Create
