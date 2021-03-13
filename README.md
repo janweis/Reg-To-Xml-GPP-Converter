@@ -16,7 +16,7 @@ Powershell Version 3
 - ActionType (nicht erforderlich) – Der Wert kann ( Create, Delete, Update, Replace ) betragen. Der „Default Parameter“ ist Update
 
 ## Beispiele / Examples v1.3
-Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg
-Convert-RegToGppXml.ps1 -FilePath „C:\Sub Folder\MyTestRegFile.reg“
-Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg -ActionType Create
-Convert-RegToGppXml.ps1 -FilePath „C:\Sub Folder\MyTestRegFile.reg“ -ActionType Replace
+- Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg
+- Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg"
+- Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg -ActionType Create
+- Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg" -ActionType Replace
