@@ -11,11 +11,11 @@ Es bedient alle gängigen Registry-Formate: REG_SZ, REG_EXPAND_SZ, REG_MULTI_SZ,
 ## Voraussetzungen / Prerequisites
 Powershell Version 3
 
-## Parameter v1.3
+## Parameter
 - FilePath (erforderlich) – Hier geben Sie den Pfad zur Reg-Datei an
 - ActionType (nicht erforderlich) – Der Wert kann ( Create, Delete, Update, Replace ) betragen. Der „Default Parameter“ ist Update
 
-## Beispiele / Examples v1.3
+## Beispiele / Examples
 - Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg
 - Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg"
 - Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg -ActionType Create
