@@ -1,22 +1,77 @@
-# RegToXML Converter v1.3 (Update 10.2019)
+# 🧾 RegToXML GPP Converter (v1.3)
 
-Über die Group Policy Preferences (GPP) kann man unter anderem Registry-Einträge per Gruppenrichtlinie an Client-Rechner verteilen. Was bei einem einzelnen Eintrag manuell noch machbar ist, wird zu einer aufwändigen und fehlerträchtigen Aufgabe, wenn es um mehrere Registry-Werte geht, die man parallel verteilen muss.
+Convert Windows Registry `.reg` files to Group Policy Preferences-compatible XML files using PowerShell.
 
-Hierfür bieten die GPP einen Import-Mechanismus über XML-Dateien. Damit ist jedoch noch nicht viel gewonnen, denn eine XML-Datei ist noch viel weniger einfach “per Hand” zu generieren. Muss man aber auch gar nicht: Es ist mit einem PowerShell-Skript möglich, einen Registry-Export in eine XML-Datei umzuwandeln. Nun muss man also nur noch auf einem Muster-Client die nötigen Registry-Einstellungen vornehmen, um diese dann in eine .reg-Datei zu exportieren. Das Skript erledigt den Rest.
+This script simplifies the process of deploying multiple registry settings via GPO. Instead of manually editing XML, you can export registry settings from a reference machine and convert them into GPP XML using this tool.
 
-Das Skript wandelt/konvertiert Registry-Dateien (sog. *.reg-Files) in XML-Dateien für die Managementkonsole. (GroupPolicyPreferences Registry). 
+---
 
-Es bedient alle gängigen Registry-Formate: REG_SZ, REG_EXPAND_SZ, REG_MULTI_SZ, REG_BINARY, REG_DWORD, REG_QWORD
+## 💡 What does it do?
 
-## Voraussetzungen / Prerequisites
-Powershell Version 3
+This PowerShell script converts exported Windows Registry files (`.reg`) into XML format for use with **Group Policy Preferences**. It supports all common registry value types:
 
-## Parameter
-- FilePath (erforderlich) – Hier geben Sie den Pfad zur Reg-Datei an
-- ActionType (nicht erforderlich) – Der Wert kann ( Create, Delete, Update, Replace ) betragen. Der „Default Parameter“ ist Update
+- `REG_SZ`
+- `REG_EXPAND_SZ`
+- `REG_MULTI_SZ`
+- `REG_BINARY`
+- `REG_DWORD`
+- `REG_QWORD`
 
-## Beispiele / Examples
-- Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg
-- Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg"
-- Convert-RegToGppXml.ps1 -FilePath C:\MyTestRegFile.reg -ActionType Create
-- Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg" -ActionType Replace
+---
+
+## ⚙️ Prerequisites
+
+- PowerShell **version 3 or higher**
+- A valid `.reg` file (e.g., exported from a reference machine)
+
+---
+
+## 📦 Parameters
+
+| Parameter     | Required | Description                                                                 |
+|---------------|----------|-----------------------------------------------------------------------------|
+| `FilePath`    | ✅ Yes    | Full path to the `.reg` file                                                |
+| `ActionType`  | ❌ No     | GPP action to apply: `Create`, `Delete`, `Update`, or `Replace` (default: `Update`) |
+
+---
+
+## 🚀 Usage Examples
+
+```powershell
+# Basic conversion (default action = Update)
+Convert-RegToGppXml.ps1 -FilePath "C:\MyTestRegFile.reg"
+
+# With spaces in path
+Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg"
+
+# Specify action type (e.g., Create)
+Convert-RegToGppXml.ps1 -FilePath "C:\MyTestRegFile.reg" -ActionType Create
+
+# Combine path with custom action
+Convert-RegToGppXml.ps1 -FilePath "C:\Sub Folder\MyTestRegFile.reg" -ActionType Replace
+```
+
+---
+
+## 📝 Notes
+
+- Only .reg files with standard formatting are supported.
+- Paths and values are preserved and translated to the correct GPP structure.
+- The generated XML conforms to Microsoft's GPP schema.
+
+---
+
+## 🙋 Feedback & Contributions
+If you find this project useful or have suggestions, feel free to:
+
+- ⭐ Star the repository
+- 🐛 Submit issues
+- 🔧 Contribute improvements via pull request
+
+---
+
+## 🔗 Related Projects
+Active Directory Delegation Wizard 
+https://github.com/janweis/Active-Directory-Delegation-Powershell-Wizard
+
+
